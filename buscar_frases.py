@@ -17,3 +17,18 @@ FRASES = [
 for hotel, texto in FRASES:
     conn.execute("INSERT INTO frases (tenant_id, texto, embedding) VALUES (%s, %s, %s)",
     (hotel, texto, embedding(texto)))
+
+PREGUNTAS = [
+    ("hotel_mar", "A que hora empieza el horario del desayuno?"),
+    ("hotel_cielo", "A que hora empieza el horario del desayuno?"),
+    ("hotel_cielo", "Donde puedo encontrar esquis?")
+]
+
+for hotel_cliente, pregunta in PREGUNTAS:
+    Vector = embedding(pregunta)
+    print()
+    resultados = conn.execute("SELECT texto, embedding <=> %s FROM frases WHERE tenant_id = %s ORDER BY embedding <=> %s LIMIT 2", (Vector, hotel_cliente, Vector))
+    print(hotel_cliente, pregunta)
+    for texto, distancia in resultados:
+        print (f"{1-distancia:.2f}| {texto}")
+
