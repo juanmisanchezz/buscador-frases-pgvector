@@ -2,7 +2,7 @@
 
 Proyecto 9 del máster de AI Engineering de thePower.
 
-Guardo 5 frases cortas de dos hoteles en PostgreSQL con pgvector y, dada una pregunta, devuelvo las 2 frases más parecidas por significado. Cada hotel es un cliente distinto de la plataforma (un tenant), así que todas las búsquedas van filtradas por hotel: un hotel nunca ve las frases del otro.
+Guardo 5 frases cortas de dos hoteles en PostgreSQL con pgvector y recibiendo una pregunta, devuelvo las 2 frases más parecidas por significado. Cada hotel es un cliente distinto de la plataforma (un tenant), así que todas las búsquedas van filtradas por hotel: un hotel nunca ve las frases del otro.
 
 ## Cómo funciona
 
